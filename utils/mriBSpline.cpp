@@ -1760,7 +1760,7 @@ extern MRI_BSPLINE *MRItoBSpline(const MRI *mri_src, MRI_BSPLINE *bspline, int d
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
   #pragma omp parallel for if_ROMP(experimental) firstprivate(tid, y, f, Lines) shared(Depth, Height, Width, Frames, Pole, NbPoles, bspline) \
-    schedule(static, 1)
+    schedule(dynamic, 1)
 #endif
   for (z = 0; z < Depth; z++) {
     ROMP_PFLB_begin
@@ -1813,7 +1813,7 @@ extern MRI_BSPLINE *MRItoBSpline(const MRI *mri_src, MRI_BSPLINE *bspline, int d
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
     #pragma omp parallel for if_ROMP(experimental) firstprivate(tid, x, f, Lines) shared(Depth, Height, Width, Frames, Pole, NbPoles, bspline) \
-    schedule(static, 1)
+    schedule(dynamic, 1)
 #endif
     for (z = 0; z < Depth; z++) {
       ROMP_PFLB_begin
@@ -1853,7 +1853,7 @@ extern MRI_BSPLINE *MRItoBSpline(const MRI *mri_src, MRI_BSPLINE *bspline, int d
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
     #pragma omp parallel for if_ROMP(experimental) firstprivate(tid, x, f, Lines) shared(Depth, Height, Width, Frames, Pole, NbPoles, bspline) \
-    schedule(static, 1)
+    schedule(dynamic, 1)
 #endif
     for (y = 0; y < Height; y++) {
       ROMP_PFLB_begin
@@ -2187,7 +2187,7 @@ MRI *MRIlinearTransformBSpline(const MRI_BSPLINE *bspline, MRI *mri_dst, MATRIX 
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
   #pragma omp parallel for if_ROMP(experimental) firstprivate(tid, y2, y1, x1, x2, x3, frame, val, v_X, v_Y) \
-    shared(depth, height, width, mAinv, bspline, mri_dst) schedule(static, 1)
+    shared(depth, height, width, mAinv, bspline, mri_dst) schedule(dynamic, 1)
 #endif
   for (y3 = 0; y3 < depth; y3++) {
     ROMP_PFLB_begin

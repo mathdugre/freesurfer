@@ -409,7 +409,7 @@ int FCDcomputeThicknessLabels(FCD_DATA *fcd, double thickness_thresh, double sig
 // process left hemisphere
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) shared(fcd, mri_lh_diff, Gdiag_no, thickness_thresh) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) shared(fcd, mri_lh_diff, Gdiag_no, thickness_thresh) schedule(dynamic, 1)
 #endif
   for (vno = 0; vno < fcd->mris_lh->nvertices; vno++) {
     ROMP_PFLB_begin
@@ -476,7 +476,7 @@ int FCDcomputeThicknessLabels(FCD_DATA *fcd, double thickness_thresh, double sig
 
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) shared(fcd, mri_rh_diff, Gdiag_no, thickness_thresh) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) shared(fcd, mri_rh_diff, Gdiag_no, thickness_thresh) schedule(dynamic, 1)
 #endif
   for (vno = 0; vno < fcd->mris_rh->nvertices; vno++) {
     ROMP_PFLB_begin

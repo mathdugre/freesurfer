@@ -402,7 +402,7 @@ int RBMactivateForward(RBM *rbm, double *visible)
 
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) shared(rbm, visible) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) shared(rbm, visible) schedule(dynamic, 1)
 #endif
   for (h = 0; h < rbm->nhidden; h++) {
     ROMP_PFLB_begin
@@ -453,7 +453,7 @@ int RBMactivateBackward(RBM *rbm)
 
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) shared(rbm) schedule(static, 1)
+    #pragma omp parallel for if_ROMP(experimental) shared(rbm) schedule(dynamic, 1)
 #endif
     for (v = 0; v < rbm->nvisible; v++) {
       ROMP_PFLB_begin
@@ -476,7 +476,7 @@ int RBMactivateBackward(RBM *rbm)
   {
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) shared(rbm) schedule(static, 1)
+    #pragma omp parallel for if_ROMP(experimental) shared(rbm) schedule(dynamic, 1)
 #endif
     for (v = 0; v < rbm->nvisible; v++) {
       ROMP_PFLB_begin
@@ -504,7 +504,7 @@ int RBMactivateBackward(RBM *rbm)
     int label;
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) shared(rbm) schedule(static, 1)
+    #pragma omp parallel for if_ROMP(experimental) shared(rbm) schedule(dynamic, 1)
 #endif
     for (v = 0; v < rbm->nlabels; v++) {
       ROMP_PFLB_begin

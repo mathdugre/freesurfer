@@ -2590,7 +2590,7 @@ int mrisComputeDistanceTerm(MRI_SURFACE *mris, INTEGRATION_PARMS *parms)
 // need to make v_n etc. into arrays and use tids
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(assume_reproducible) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(assume_reproducible) schedule(dynamic, 1)
 #endif
   for (vno = 0; vno < mris->nvertices; vno++) {
     ROMP_PFLB_begin

@@ -880,7 +880,7 @@ static double AEaccumulateGradient(AE *ae, SAE_INTEGRATION_PARMS *parms)
 //  compute output weights grad
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden) shared(ae) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden) shared(ae) schedule(dynamic, 1)
 #endif
   for (k = 1; k <= noutputs; k++) {
     ROMP_PFLB_begin
@@ -901,7 +901,7 @@ static double AEaccumulateGradient(AE *ae, SAE_INTEGRATION_PARMS *parms)
 // compute hidden bias grad
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-#pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden) shared(ae) schedule(static, 1)
+#pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden) shared(ae) schedule(dynamic, 1)
 #endif
   for (j = 1; j <= nhidden; j++) {
     ROMP_PFLB_begin
@@ -924,7 +924,7 @@ static double AEaccumulateGradient(AE *ae, SAE_INTEGRATION_PARMS *parms)
 // compute hidden weight grad
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden) shared(ae) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden) shared(ae) schedule(dynamic, 1)
 #endif
   for (i = 1; i <= noutputs; i++) {
     ROMP_PFLB_begin
@@ -1198,7 +1198,7 @@ static double AEtrain(AE *ae, SAE_INTEGRATION_PARMS *parms)
 // update compute output weights grad
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden, dt) shared(ae) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden, dt) shared(ae) schedule(dynamic, 1)
 #endif
   for (k = 1; k <= noutputs; k++) {
     ROMP_PFLB_begin
@@ -1222,7 +1222,7 @@ static double AEtrain(AE *ae, SAE_INTEGRATION_PARMS *parms)
 // compute hidden bias grad
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden, dt) shared(ae) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden, dt) shared(ae) schedule(dynamic, 1)
 #endif
   for (j = 1; j <= nhidden; j++) {
     ROMP_PFLB_begin
@@ -1249,7 +1249,7 @@ static double AEtrain(AE *ae, SAE_INTEGRATION_PARMS *parms)
 // compute hidden weight grad
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden, dt) shared(ae) schedule(static, 1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate(noutputs, nhidden, dt) shared(ae) schedule(dynamic, 1)
 #endif
   for (i = 1; i <= noutputs; i++) {
     ROMP_PFLB_begin

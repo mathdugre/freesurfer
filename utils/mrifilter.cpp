@@ -3051,7 +3051,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(experimental) firstprivate(y, x, inBase, foutPix, ki, i, total) \
-    shared(depth, height, width, len, halflen, mri_src, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_src, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3080,7 +3080,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(experimental) firstprivate(y, x, foutPix, ki, i, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3108,7 +3108,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(experimental) firstprivate(y, x, foutPix, ki, i, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3136,7 +3136,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(assume_reproducible) firstprivate(y, x, inBase_f, foutPix, ki, i, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3167,7 +3167,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(assume_reproducible) firstprivate(y, x, foutPix, ki, i, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3195,7 +3195,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(assume_reproducible) firstprivate(y, x, foutPix, ki, i, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3223,7 +3223,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(experimental) firstprivate(y, x, foutPix, ki, i, val, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3251,7 +3251,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(experimental) firstprivate(y, x, foutPix, ki, i, val, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -3281,7 +3281,7 @@ MRI *MRIconvolve1d(MRI *mri_src, MRI *mri_dst, float *k, int len, int axis, int 
           ROMP_PF_begin
 #ifdef HAVE_OPENMP
 	  #pragma omp parallel for if_ROMP(experimental) firstprivate(y, x, foutPix, ki, i, val, total) \
-    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(static, 1)
+    shared(depth, height, width, len, halflen, mri_dst, src_frame, dst_frame, xi, yi, zi) schedule(dynamic, 1)
 #endif
           for (z = 0; z < depth; z++) {
 	    ROMP_PFLB_begin
@@ -5881,7 +5881,7 @@ MRI *MRIsmoothLabel6Connected(
     memset(max_change, 0, sizeof(max_change));
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) firstprivate(max_change) shared(mri_tmp, mri_label, Gx, Gy, Gz) schedule(static, 1)
+    #pragma omp parallel for if_ROMP(experimental) firstprivate(max_change) shared(mri_tmp, mri_label, Gx, Gy, Gz) schedule(dynamic, 1)
 #endif
     for (x = 0; x < mri_tmp->width; x++) {
       ROMP_PFLB_begin

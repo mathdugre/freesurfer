@@ -283,7 +283,7 @@ void ROMP_pf_begin(
         if (debug) fprintf(stderr, "%s:%d get child tid start times for tid:%d pf_stack:%p\n", __FILE__, __LINE__, tid, pf_stack);
 
 #ifdef HAVE_OPENMP
-        #pragma omp parallel for schedule(static,1)
+        #pragma omp parallel for schedule(dynamic,1)
 #endif
         for (i = 0; i < ROMP_maxWatchedThreadNum; i++) {
             int childTid = 
@@ -372,7 +372,7 @@ void ROMP_pf_end(
             } else {
                 int i;
                 #ifdef HAVE_OPENMP
-                    #pragma omp parallel for schedule(static,1)
+                    #pragma omp parallel for schedule(dynamic,1)
                 #endif
                 for (i = 0; i < ROMP_maxWatchedThreadNum; i++) pf_end_one_thread(tid, pf_stack, tos);
             }

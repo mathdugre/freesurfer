@@ -1732,7 +1732,7 @@ compute_weight_functional(VECTOR **v_D, MATRIX **m_I, VECTOR *v_weights, int nsu
 
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) firstprivate (v_D, v_weight_T) reduction(+:total_error) schedule(static,1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate (v_D, v_weight_T) reduction(+:total_error) schedule(dynamic,1)
 #endif
   for (n = 0 ; n < nsubjects ; n++)
   {
@@ -1765,7 +1765,7 @@ compute_gradient_wrt_weights(VECTOR **v_D, MATRIX **m_I, VECTOR *v_weights, int 
   nvertices = v_D[0]->rows ; nvox = v_weights->rows ;
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
-  #pragma omp parallel for if_ROMP(experimental) firstprivate (v_D) shared(v_diff)  schedule(static,1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate (v_D) shared(v_diff)  schedule(dynamic,1)
 #endif
   for (n = 0 ; n < nsubjects ; n++)
   {
@@ -1784,7 +1784,7 @@ compute_gradient_wrt_weights(VECTOR **v_D, MATRIX **m_I, VECTOR *v_weights, int 
   {
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) firstprivate (l, v_gradient, nvertices) schedule(static,1)
+    #pragma omp parallel for if_ROMP(experimental) firstprivate (l, v_gradient, nvertices) schedule(dynamic,1)
 #endif
     for (n = 0 ; n < nsubjects ; n++)
     {
@@ -1907,7 +1907,7 @@ compute_subcortical_map_weights(MRI_SURFACE *mris, MRI *mri_fvol[MAX_SUBJECTS][M
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
   mri_cmat = NULL ;
-  #pragma omp parallel for if_ROMP(experimental) firstprivate (mri_cmat) shared(m_I, vl, mri_fvol, mri_fsurf, runs) schedule(static,1)
+  #pragma omp parallel for if_ROMP(experimental) firstprivate (mri_cmat) shared(m_I, vl, mri_fvol, mri_fsurf, runs) schedule(dynamic,1)
 #endif
   for (n = 0 ; n <= nsubjects ; n++)
   {

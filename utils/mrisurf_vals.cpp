@@ -2003,7 +2003,7 @@ int MRISaverageVals(MRI_SURFACE *mris, int navgs)
   for (i = 0; i < navgs; i++) {
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) shared(mris, i) schedule(static, 1)
+    #pragma omp parallel for if_ROMP(experimental) shared(mris, i) schedule(dynamic, 1)
 #endif
     for (vno = 0; vno < mris->nvertices; vno++) {
       ROMP_PFLB_begin
@@ -2033,7 +2033,7 @@ int MRISaverageVals(MRI_SURFACE *mris, int navgs)
 
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) shared(mris, i) schedule(static, 1)
+    #pragma omp parallel for if_ROMP(experimental) shared(mris, i) schedule(dynamic, 1)
 #endif
     for (vno = 0; vno < mris->nvertices; vno++) {
       ROMP_PFLB_begin

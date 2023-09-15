@@ -296,7 +296,7 @@ main(int argc, char *argv[]) {
 #if 0
 #ifdef HAVE_OPENMP
         val = 0 ; l = 0 ;
-#pragma omp parallel for if_ROMP(experimental) firstprivate(val, l) shared(mri_aseg, mri_tmp, labels, y, z) schedule(static,1)
+#pragma omp parallel for if_ROMP(experimental) firstprivate(val, l) shared(mri_aseg, mri_tmp, labels, y, z) schedule(dynamic,1)
 #endif
 #endif
 	for (x = 0 ; x < mri_aseg->width ; x++) {
@@ -368,7 +368,7 @@ main(int argc, char *argv[]) {
 #if 0
 #ifdef HAVE_OPENMP
 	val = 0 ; l = 0 ;
-#pragma omp parallel for if_ROMP(experimental) firstprivate(val, l) shared(mri_aseg, mri_tmp, labels, y, z) schedule(static,1)
+#pragma omp parallel for if_ROMP(experimental) firstprivate(val, l) shared(mri_aseg, mri_tmp, labels, y, z) schedule(dynamic,1)
 #endif
 #endif
 	for (x = 0 ; x < mri_aseg->width ; x++) {
@@ -843,7 +843,7 @@ compute_migration_probabilities(MRI_SURFACE *mris, MRI *mri_intensity, MRI *mri_
   ROMP_PF_begin
 #ifdef HAVE_OPENMP
   v = NULL ; n = 0 ; vl = vl_spline = NULL ;
-#pragma omp parallel for if_ROMP(experimental) firstprivate(n, v, vl, vl_spline, entropy, gm_mean, mcmc_samples) shared(mri_intensity, mri_aseg, mri_path_grad,mri_splines) schedule(static,1)
+#pragma omp parallel for if_ROMP(experimental) firstprivate(n, v, vl, vl_spline, entropy, gm_mean, mcmc_samples) shared(mri_intensity, mri_aseg, mri_path_grad,mri_splines) schedule(dynamic,1)
 #endif
   for (vno = 0 ; vno < mris->nvertices ; vno++)
   {

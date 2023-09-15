@@ -9651,7 +9651,7 @@ int MRISaverageGradients(MRIS *mris, int num_avgs)
 	
 	ROMP_PF_begin
 #ifdef HAVE_OPENMP
-	#pragma omp parallel for if_ROMP(experimental) schedule(static, 1)
+	#pragma omp parallel for if_ROMP(experimental) schedule(dynamic, 1)
 #endif
         for (vno = 0; vno < mris->nvertices; vno++) {
 	  ROMP_PFLB_begin

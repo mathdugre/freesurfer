@@ -625,7 +625,7 @@ compute_error(MRI *mri_dist, MATRIX *R0, MATRIX *Mras2vox, LABEL *lras, LABEL *l
   case COST_MAX:
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-    #pragma omp parallel for if_ROMP(experimental) firstprivate(val, mri_dist) shared(lvol) schedule(static,1) 
+    #pragma omp parallel for if_ROMP(experimental) firstprivate(val, mri_dist) shared(lvol) schedule(dynamic,1) 
 #endif
     for (i = 0 ; i < lvol->n_points ; i++)
     {
@@ -658,7 +658,7 @@ compute_error(MRI *mri_dist, MATRIX *R0, MATRIX *Mras2vox, LABEL *lras, LABEL *l
   case COST_RMS:
      ROMP_PF_begin
 #ifdef HAVE_OPENMP
-     #pragma omp parallel for if_ROMP(experimental) firstprivate(val, mri_dist) shared(lvol) schedule(static,1) reduction(+: sse)
+     #pragma omp parallel for if_ROMP(experimental) firstprivate(val, mri_dist) shared(lvol) schedule(dynamic,1) reduction(+: sse)
 #endif
     for (i = 0 ; i < lvol->n_points ; i++)
     {
@@ -674,7 +674,7 @@ compute_error(MRI *mri_dist, MATRIX *R0, MATRIX *Mras2vox, LABEL *lras, LABEL *l
   case COST_L1:
     ROMP_PF_begin
 #ifdef HAVE_OPENMP
-#pragma omp parallel for if_ROMP(experimental) firstprivate(val, mri_dist) shared(lvol) schedule(static,1) reduction(+: sse)
+#pragma omp parallel for if_ROMP(experimental) firstprivate(val, mri_dist) shared(lvol) schedule(dynamic,1) reduction(+: sse)
 #endif
     for (i = 0 ; i < lvol->n_points ; i++)
     {

@@ -589,7 +589,7 @@ bool MultiRegistration::computeTemplate(int itmax, double eps, int iterate,
     // register all inputs to mean
     vector<double> dists(nin, 1000); // should be larger than maxchange!
 #ifdef HAVE_OPENMP
-#pragma omp parallel for schedule(static,1)
+#pragma omp parallel for schedule(dynamic,1)
 #endif
     for (int i = 0; i < nin; i++)
     {
@@ -1345,7 +1345,7 @@ bool MultiRegistration::initialXforms(int tpi, bool fixtp, int maxres,
   Md[0].first.set_identity();
   Md[0].second = 1.0;
 #ifdef HAVE_OPENMP
-#pragma omp parallel for schedule(static,1)
+#pragma omp parallel for schedule(dynamic,1)
 #endif
   for (int i = 1; i < nin; i++)
   {
